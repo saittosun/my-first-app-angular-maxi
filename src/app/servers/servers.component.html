@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <div>
+    <label>server name</label>
+    <input 
+      type="text"
+      class="form-control"
+      (input)="onUpdateServerName($event)" >
+    <p>{{serverName}}</p>
+    <br>
+    <label>server name</label>
+    <input 
+      type="text"
+      class="form-control"
+      [(ngModel)]="serverName" >
+    <p>{{serverName}}</p>
+  </div>
+  <button 
+    class="btn btn-primary mb-5"
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()">add server</button>
+  <p [innerText]="!allowNewServer"></p>
+  <p>{{serverCreationStatus}}</p>
+  <app-server></app-server>
+</div>
