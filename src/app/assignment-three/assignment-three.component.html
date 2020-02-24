@@ -1,3 +1,10 @@
 <div class="container mt-5">
-  <div class="btn btn-primary">display details</div>
+  <div 
+    class="btn btn-primary"
+    (click)="onShowSecret()">display details</div>
+  <p *ngIf="showSecret">secret password = sait</p>
+  <h4 
+    *ngFor="let logItem of log; let i = index"
+    [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+    [ngClass]="{white: i >= 4}">{{logItem}}</h4>
 </div>

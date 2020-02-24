@@ -6,8 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./assignment-three.component.css']
 })
 export class AssignmentThreeComponent implements OnInit {
-  information = 'any content of your choice';
+  showSecret: boolean;
+  log = [];
+
   constructor() { }
+
+  getColor() {
+    this.log.map(logItem => {
+      return logItem >= 5 ? 'blue' : 'transparent';
+    });
+  }
+
+  onShowSecret() {
+    this.showSecret = !this.showSecret;
+    // this.log.push(this.log.length + 1);
+    this.log.push(new Date());
+  }
 
   ngOnInit(): void {
   }
