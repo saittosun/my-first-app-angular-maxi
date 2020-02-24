@@ -12,4 +12,7 @@ export class AppComponent {
   onReset() {
     this.username = '';
   }
+
+  // assignment-three
+  
 }

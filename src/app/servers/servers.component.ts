@@ -7,12 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
   allowNewServer: boolean;
+  allowNewDirective: boolean;
   serverCreationStatus = 'no server was created';
   serverName = 'test';
+  directiveName = '';
+  directiveCreated = false;
+  ngForServers = ['ngForTestServer 1', 'ngForTestServer 2'];
 
   constructor() {
     setTimeout(() => {
       this.allowNewServer = !this.allowNewServer;
+    }, 2000);
+
+    setTimeout(() => {
+      this.allowNewDirective = !this.allowNewDirective;
     }, 2000);
   }
 
@@ -23,6 +31,15 @@ export class ServersComponent implements OnInit {
   onCreateServer() {
     this.serverCreationStatus = 'server was created! Name is ' + this.serverName;
   }
+
+  onCreateDirective() {
+    this.directiveCreated = true;
+  }
+
+  onCreateNgForDirective() {
+    this.ngForServers.push(this.directiveName);
+  }
+
   ngOnInit(): void {
   }
 

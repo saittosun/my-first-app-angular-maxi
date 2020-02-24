@@ -1,6 +1,7 @@
 <div class="container mt-5">
-  <div>
-    <label>server name</label>
+  <!--databinding-->
+  <!-- <div>
+    <label>data-binding server name</label>
     <input 
       type="text"
       class="form-control"
@@ -19,6 +20,26 @@
     [disabled]="!allowNewServer"
     (click)="onCreateServer()">add server</button>
   <p [innerText]="!allowNewServer"></p>
-  <p>{{serverCreationStatus}}</p>
-  <app-server></app-server>
+  <p>{{serverCreationStatus}}</p> -->
+  <!-- <app-server></app-server> -->
+  <!--directives-->
+  <div>
+    <label>directive server name</label>
+    <input 
+      type="text"
+      class="form-control"
+      [(ngModel)]="directiveName" >
+  </div>
+  <div>
+    <button 
+    class="btn btn-primary mb-5"
+    [disabled]="!allowNewDirective"
+    (click)="onCreateDirective()">add Directive</button>
+    <p *ngIf="directiveCreated; else noServer">directive name is {{directiveName}}</p>
+    <ng-template #noServer>
+      <p>no server!!!!</p>
+    </ng-template>
+  </div>
+  <app-server
+    *ngFor="let ngForServer of ngForServers"></app-server>
 </div>
